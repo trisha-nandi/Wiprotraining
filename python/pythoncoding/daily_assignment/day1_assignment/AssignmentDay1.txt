@@ -1,0 +1,223 @@
+1. Write a program that asks the user for their age and checks if they are eligible to 
+vote (18 years and older). Print a message based on their eligibility. 
+ANS
+age = int(input("Enter age : "))
+
+if age >= 18:
+    print("Eligible to Vote")
+else:
+    print("Not eligible to Vote")
+
+OUTPUT
+
+Enter age : 23
+Eligible to Vote
+
+2. Write a program that takes a year as input and checks if it is a leap year or not. 
+Print the result.
+ANS 
+
+year = int(input("Enter year : "))
+
+if year % 4 ==0:
+    print("The year" , year , "year is a leap year")
+else:
+    print("The year", year, "year is  not a leap year")
+
+OUTPUT
+
+Enter year : 2026
+The year 2026 year is  not a leap year
+
+3. Write a program that takes a number as input and checks if it is divisible by 5. Print a message if it is divisible or not.
+ANS
+
+n= int(input("enter a number: "))
+
+if n % 5 == 0:
+    print("divisible by 5")
+else:
+    print("not divisible by 5")
+
+OUTPUT
+
+enter a number: 25
+divisible by 5
+
+4. Write a program that takes a character as input and checks if it is a vowel or 
+consonant. Print the result. 
+ANS
+
+ch = input("enter a character: ")
+
+if ch in 'aeiouAEIOU':
+    print("it is a vowel")
+else:
+    print("it is a consonent")
+
+OUTPUT
+
+enter a character: E
+it is a vowel
+
+5. Write a program that takes a password as input and checks if it is strong (at least 
+8 characters). Print a message based on the result. 
+ANS
+
+
+password = input("enter a password:")
+
+if len(password) >= 8:
+    print("strong password")
+else:
+    print("weak password it should be at least 8 characters")
+
+OUTPUT
+
+enter a password:124@#$SDFD@31
+strong password
+
+6. Write a program that takes a grade (A, B, C, D, F) as input and uses match-case 
+to print a message corresponding to the grade (e.g., "Excellent" for A, "Good" for 
+B, etc.).
+ANS
+
+grade = input("enter your grade(A/B/C/F):").upper()
+
+match grade:
+    case'A':
+        print("Excellent")
+    case 'B':
+        print("Good")
+    case 'C':
+        print("Average")
+    case 'F':
+        print("Fail")
+    case _:
+        print("Invalit grade")
+
+OUTPUT
+
+enter your grade(A/B/C/F):A
+Excellent
+
+7. Write a program that takes a traffic light color (Red, Yellow, Green) as input and 
+uses match-case to print the corresponding action (e.g., "Stop" for Red, "Wait" 
+for Yellow, etc.). 
+ANS
+
+colors = input("Enter traffic light color:").capitalize()
+
+match colors:
+    case"Red":
+        print("Stop")
+    case "Yellow":
+        print("Wait")
+    case "Green":
+        print("Go")
+    case _:
+        print("Invalid color")
+
+OUTPUT
+
+Enter traffic light color:Green
+Go
+
+8. Write a program that takes a number as input and uses a for loop to calculate its 
+factorial. Print the result.
+ANS
+
+n=int(input("Enter a number:"))
+fact = 1
+
+for i in range(1,n+1):
+    fact *= i
+
+print("Factorial =",fact)
+
+OUTPUT
+
+Enter a number:8
+Factorial = 40320
+ 
+9. Write a program that uses a for loop to print all even numbers between 1 and 20. 
+ANS
+
+for n in range(1,21):
+    if n %2 == 0:
+        print(n)
+
+OUTPUT
+
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+
+10. Write a program that uses a while loop to create a countdown timer from 10 to 0. 
+Print each number. 
+ANS
+
+count = 10
+while count >=0:
+    print(count)
+    count -= 1
+
+OUTPUT
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+
+
+11. Write a program that uses a for loop to count the number of vowels in a given 
+string. Print the count.
+ANS
+
+text = input("Enter a string: ")
+count = 0
+
+for ch in text:
+    if ch in 'aeiouAEIOU':
+        count += 1
+
+print("Number of vowels:", count)
+
+OUTPUT 
+
+Enter a string: TRISHA
+Number of vowels: 2
+
+12. Write a program that uses a for loop to print numbers from 1 to 10, but skips 
+printing the number 5 (use continue) and stops the loop if the number 8 is 
+reached (use break).
+ANS
+
+for n in range(1,11):
+    if n == 5:
+        continue
+    if n == 8:
+        break
+    print(n)
+OUTPUT 
+
+1
+2
+3
+4
+6
+7

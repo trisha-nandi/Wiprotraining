@@ -1,0 +1,332 @@
+1.Write a program that asks the user to enter some text and saves it to a file called 
+output.txt. Then, open the file and read its contents, printing them to the console.
+ANS
+
+text=input("Enter some text:")
+with open("Output.txt","w")as file:
+    file.write(text)
+
+with open("Output.txt", "r") as file:
+    print("File Content:",file.read())
+
+
+OUTPUT
+
+Enter a positive number:876
+You entered: 876.0
+
+
+2.Write a program that reads a text file called sample.txt and counts the number of lines, 
+words, and characters in the file. Print the counts. 
+
+ANS
+
+
+try:
+    with open("sample.txt","r")as file:
+        lines=file.readlines()
+        line_count=len(lines)
+        word_count=sum(len(line.split())for line in lines)
+        ch_count=sum(len(line)for line in lines)
+
+    print("fLines:{line_count}")
+    print("fWords:{word_count}")
+    print("fCharacters:{ch_count}")
+except FileNotFoundError:
+    print("Error:sample.txt not found.")
+
+OUTPUT
+
+fLines:{line_count}
+fWords:{word_count}
+fCharacters:{ch_count}
+
+3.Write a program that reads the contents of a file called source.txt and writes the 
+contents to another file called destination.txt. Ensure that destination.txt is created if it 
+doesn't exist. 
+
+ANS
+
+
+try:
+    with open("source.txt","r")as source:
+        content=source.read()
+
+    with open("destination.txt", "w")as destination:
+        destination.write(content)
+
+    print("File copied successfully")
+
+except FileNotFoundError:
+    print("Error: source.txt not found")
+
+OUTPUT
+
+File copied successfully
+
+4.Write a program that appends a line of text to a file called log.txt. After appending the 
+text, open the file and print its contents to verify that the text was added.
+
+ANS
+
+
+text=input("Enter text to append:")
+with open("log.txt","a")as file:
+    file.write(text +"\n")
+
+print("\nContents of log.txt:")
+with open("log.txt","r")as file:
+    print(file.read())
+
+OUTPUT
+
+Universe
+Ami Bangali.
+ 
+5.Write a program that asks the user to input a number in the form of a string. Use a try
+except block to convert the string to an integer. If a ValueError occurs (e.g., if the user 
+inputs a non-numeric string), print an error message. Otherwise, print the integer.
+
+ANS
+
+num_str = input("Enter a number: ")
+
+try:
+    num= int(num_str)
+    print("Integer value:", num)
+
+except ValueError:
+
+    print("Error: Please enter a valid numeric value")
+
+OUTPUT
+
+Enter a number: 635
+Integer value: 635
+ 
+6.Write a program that tries to open a file specified by the user for reading. Use a try
+except block to handle FileNotFoundError if the file does not exist. If the file is 
+successfully opened, print its contents; otherwise, print an error message.
+
+ANS
+
+filename=input("Enter file name:")
+
+try:
+    with open(filename,"r")as file:
+        content = file.read()
+        print("\nFile contents:")
+        print(content)
+
+except FileNotFoundError:
+    print("Eroor: File not found")
+
+OUTPUT
+
+Enter file name:destination.txt
+
+File contents:
+hello!!!!
+Welcome to Bankura, West Bengal.
+ 
+7.Write a program that asks the user to input two numbers and performs division. Use a 
+try-except block to handle both ZeroDivisionError and ValueError. Print different 
+messages for each exception. If no exception occurs, print the result of the division. 
+
+ANS
+
+num1 = input("Enter first number:")
+num2 = input("Enter second number:")
+
+try:
+    a=float(num1)
+    b=float(num2)
+    result = a / b
+
+except ValueError:
+    print("Error: Please enter valid numeric values")
+
+except ZeroDivisionError:
+    print("Error: cannot divide by zero")
+
+else:
+    print("Result:",result)
+
+OUTPUT
+
+Enter first number:987
+Enter second number:42
+Result: 23.5
+
+8.Write a program that takes a list of numbers and asks the user to input an index to 
+access an element from the list. Use a try-except block to handle IndexError if the user 
+enters an invalid index. Print the corresponding element if the index is valid; otherwise, 
+print an error message. 
+
+ANS
+
+numbers=[10,20,30,40,50]
+index = input("Enter index:")
+
+try:
+    i=int(index)
+
+    value=numbers[i]
+
+except ValueError:
+    print("Error: Please enter valid integer index")
+
+except IndexError:
+    print("Error: Index out of range")
+
+else:
+    print("Element at index",i,"is:",value)
+
+OUTPUT
+
+Enter index:3
+Element at index 3 is: 40
+
+9.Write a program that defines a custom exception class NegativeNumberError. The 
+program should ask the user to input a positive number. If the user enters a negative 
+number, raise the NegativeNumberError and handle it using a try-except block, printing 
+an appropriate error message.
+
+ANS
+
+
+class NegativeNumberError(Exception):
+    pass
+num = input("Enter a positive number:")
+
+try:
+    value= float(num)
+
+    if value < 0:
+        raise NegativeNumberError
+
+    print("You entered:",value)
+except ValueError:
+    print("Error: Please enter a valid number")
+
+except NegativeNumberError:
+    print("Error:Negative numbers are not allowed")
+
+OUTPUT
+
+Enter a positive number:96
+You entered: 96.0
+
+ 
+10.Write a program that repeatedly asks the user to input two numbers and performs 
+division. Use a try-except block inside a loop to handle ZeroDivisionError and 
+ValueError. The program should continue until the user provides valid input and a valid 
+division result is printed.
+
+ANS
+
+while True:
+    num1=input("Enter first number:")
+    num2 = input("Enter second number:")
+
+    try:
+        a=float(num1)
+        b=float(num2)
+
+        result= a/b
+
+    except ValueError:
+        print("Error: Please enter a valid mumbers\n")
+
+    except ZeroDivisionError:
+        print("Error: cannot divide by zero\n")
+
+    else:
+        print("Result:",result)
+        break
+
+ OUTPUT
+ 
+Enter first number:876
+Enter second number:234
+Result: 3.7435897435897436
+
+11.Write a program that tries to open and read a file. Use a try-except-finally block to 
+handle potential exceptions like FileNotFoundError. Ensure that the finally block prints a 
+message indicating that the program has completed, whether an exception occurred or 
+not.
+
+ANS
+
+
+filename = input("Enter file name:")
+
+try:
+    with open(filename,"r")as file:
+        content=file.read()
+        print("\nFile contents:")
+        print(content)
+
+except FileNotFoundError:
+    print("Error: File not found")
+
+finally:
+    print("Program completed")
+
+OUTPUT
+
+Enter file name:source.txt
+
+File contents:
+hello!!!!
+Welcome to Bankura, West Bengal.
+ 
+12.Write a program that defines a function to add two numbers. Use a try-except block to 
+handle TypeError in case the function is called with non-numeric arguments (e.g., 
+strings). Print an appropriate error message if the exception is caught.
+
+ANS
+ 
+def add(a,b):
+    try:
+        result = a+b
+        print("Result:",result)
+
+    except TypeError:
+        print("Error:Both inputs must be neumeric values")
+
+add(15,5)
+add(15,"hey")
+
+OUTPUT
+
+Result: 20
+Error:Both inputs must be neumeric values
+
+13.Write a program that repeatedly asks the user to input an integer. Use a `try-except` 
+block to handle `ValueError` in case the user enters a non-integer value. The program 
+should keep asking for input until a valid integer is provided, and then print the integer. 
+
+ANS
+
+while True:
+    user_input=input("Enter an integer:")
+
+    try:
+        num=int(user_input)
+    except ValueError:
+        print("Error: please enter a valid integer\n")
+    else:
+        print("You entered:",num)
+        break
+
+OUTPUT
+
+Enter an integer:UY
+Error: please enter a valid integer
+
+Enter an integer:36.97
+Error: please enter a valid integer
+
+Enter an integer:42
+You entered: 42

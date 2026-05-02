@@ -1,0 +1,370 @@
+1.Do the following in a single program using built-in functions 
+Take a list of numbers as input and print the largest and smallest numbers in the list. 
+Take a string as input and print the length of the string. 
+Take a list of names as input and print the list in alphabetical order. 
+Take a list of numbers as input and print the total sum of the elements in the list. 
+Takes a string as input and print the string in uppercase.
+
+ANS
+
+#Take a list of numbers as input and print the largest and smallest numbers in the list.
+n=[12,45,76,9,85]
+print(f"Max:{max(n)}; Min:{min(n)}")
+
+#Take a string as input and print the length of the string.
+s=input("Enter a string: ")
+print("Length if string: ",len(s))
+
+#Take a list of names as input and print the list in alphabetical order.
+names=input("Enter names(space seperated): ").split()
+print("Names in alphabetical order:",sorted(names))
+
+#Take a list of numbers as input and print the total sum of the elements in the list.
+n1=list(map(int, input("enter numbers for sum:").split()))
+print("Total sum: ",sum(n1))
+
+#Takes a string as input and print the string in uppercase.
+s2=input("Enter a string: ")
+print("Uppercase string:",s2.upper())
+
+OUTPUT
+
+Max:85; Min:9
+Enter a string: ytrew
+Length if string:  5
+Enter names(space seperated):  Trisha Nandi Khepi
+Names in alphabetical order: ['Khepi', 'Nandi', 'Trisha']
+enter numbers for sum:12 48
+Total sum:  60
+Enter a string: wertuyt
+Uppercase string: WERTUYT
+
+
+2.Write a user-defined function factorial(n) that takes a positive integer n as an argument 
+and returns its factorial. Use the function in a program and print the factorial of a given 
+number
+
+ANS
+
+def factorial (n):
+    fact = 1
+    for i in range(1, n + 1):
+        fact = fact * i
+    return fact
+
+num = int(input("Enter a positive number: "))
+
+result = factorial(num)
+print("Factorial of", num, "is:", result)
+
+OUTPUT
+
+Enter a positive number: 5
+Factorial of 5 is: 120
+
+3.Write a user-defined function "find_largest(a, b, c)" that takes three numbers as
+arguments and returns the largest of the three. Use the function in a program to find and
+print the largest of three given numbers.
+def find_largest(a,b,c):
+    if a>= b and a>=c:
+        return a
+    elif b>= a and b>=c:
+        return b
+    else:
+        return c
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+largest = find_largest(a,b,c)
+print("Largest number is:", largest)
+
+OUTPUT
+
+Enter first number: 65
+Enter second number: 23
+Enter third number: 53
+Largest number is: 65
+
+4.Write a user-defined function greet(name) that takes a name as an argument and prints a greeting message like "Hello, [name]!" Use the function to greet the user with their
+name.
+
+ANS
+
+def greet(name):
+    print("Hello,", name + "!")
+
+user_name=input("Enter your name: ")
+
+greet (user_name)
+
+OUTPUT
+
+Enter your name: Trisha
+Hello, Trisha!
+
+5.Combining Built-in and User-Defined Functions:
+Find the Average of a List: 
+Write a user-defined function average(numbers) that takes a list of numbers as an argument and returns the average of the numbers. Call the function with a list of numbers and print the average.
+
+ANS
+
+def average(numbers):
+    return sum(numbers) / len(numbers)
+
+nums =[int(x) for x in input("Enter numbers(space separated):").split()]
+
+avg= average(nums)
+
+print("Average:",avg)
+
+OUTPUT
+
+Enter numbers(space separated):74 98 80
+Average: 84.0
+
+6.Check Palindrome:
+Write a user-defined function is_palindrome(s) that takes a string as an argument and returns True if the string is a palindrome (reads the same forward and backward), and False otherwise. Test the function with different strings and print the results.
+
+ANS
+
+def is_palindrome(s):
+    return s == s[::-1]
+
+text = input("Enter a string: ")
+
+result = is_palindrome(text)
+
+print("Is palindrome:",result)
+
+OUTPUT
+
+Enter a string: python
+Is palindrome: False
+
+7.Use the Math Module:
+Write a program that imports the math module and uses it to:
+Find the square root of a number.
+Calculate the sine of an angle .
+Find the greatest common divisor (GCD) of two numbers .
+
+ANS
+
+import math
+
+num = float(input("Enter a number:"))
+print("Square root:", math.sqrt(num))
+
+angle = float(input("Enter angle(in radians):"))
+print("Sine value:",math.sin(angle))
+
+a= int(input("Enter first number:"))
+b= int(input("Enter second number:"))
+print("GCD:",math.gcd(a,b))
+
+OUTPUT
+
+Enter a number:144
+Square root: 12.0
+Enter angle(in radians):9
+Sine value: 0.4121184852417566
+Enter first number:20
+Enter second number:25
+GCD: 5
+
+8.Use the Random Module:
+Write a program that imports the random module and uses it to:
+Generate and print a random integer between 1 and 100.
+Create a list of random numbers  and print the list.
+Shuffle a list of numbers and print the shuffled list.
+
+ANS
+
+import random
+
+random_integer=random.randint(1,100)
+print("Random integer between 1 and 100:",random_integer)
+
+random_list=[]
+for i in range(10):
+    random_list.append(random.randint(1,100))
+
+print("List of random numbers:", random_list)
+
+numbers = [1,2,3,4,5,6,7,8,9,10]
+random.shuffle(numbers)
+
+print("Shuffled list:", numbers)
+
+OUTPUT
+
+Random integer between 1 and 100: 63
+List of random numbers: [91, 44, 39, 25, 46, 4, 16, 53, 5, 86]
+Shuffled list: [1, 6, 9, 8, 4, 2, 5, 7, 3, 10]
+
+9.Use the Datetime Module:
+Write a program that imports the datetime module and uses it to:
+Get and print the current date and time .
+Calculate and print the number of days between two dates.
+Format and print the current date in the format "DD-MM-YYYY"
+
+ANS
+
+from datetime import datetime
+
+now = datetime.now()
+print("Current date and time:",now)
+
+date1= datetime(2025,1, 1)
+date2= datetime(2026,1, 1)
+
+difference = date2 - date1
+print("Number of days between:",difference.days)
+
+formatted_date = now.strftime("%d-%m-%y")
+print("Fromatted date:", formatted_date)
+
+OUTPUT
+
+Current date and time: 2026-04-27 01:13:29.539911
+Number of days between: 365
+Fromatted date: 27-04-26
+
+10.Use the OS Module:
+Write a program that imports the os module and uses it to:
+Print the current working directory
+Create a new directory and verify its existence.
+List all files and directories in the current directory
+
+ANS
+
+import os
+
+print(os.getcwd())
+
+os.mkdir("../Path")
+
+print(os.path.exists("../Path"))
+
+print(os.listdir())
+
+OUTPUT
+
+True
+['MyPackage', 'q1.py', 'q10.py', 'q11.py', 'q12.py', 'q2.py', 'q3.py', 'q4.py', 'q5.py', 'q6.py', 'q7.py', 'q8.py', 'q9.py']
+
+11.Create and Use a Custom Package: 
+Create a package called my_math with two modules: arithmetic.py and geometry.py. 
+In arithmetic.py, define functions for addition, subtraction, multiplication, and division. 
+In geometry.py, define functions to calculate the area of a circle and the area of a 
+rectangle. 
+Write a program that imports these functions from the my_math package and uses 
+them to perform various calculations. 
+
+ANS
+
+from operator import add
+
+from MyPackage.arithmetic import subtract,multiply,divide
+from MyPackage.geometry import circle_area,rectangle_area
+
+print("Addition:", add(20,10))
+print("Subtraction:", subtract(20,10))
+print("Multiplication:",multiply(20,10))
+print("Division:" ,divide(20,10))
+
+print("Circle Area: ", circle_area(5))
+print("Rectangle_Area: ",rectangle_area(5,7))
+
+#arithmetic
+
+def add(a,b):
+    return a + b
+
+def subtract(a,b):
+    return a - b
+
+def multiply(a,b):
+    return a * b
+
+def divide(a,b):
+    return a / b
+
+#geometry
+
+
+def circle_area(radius):
+    return 3.14 * radius * radius
+
+def rectangle_area(length ,width):
+    return length * width
+
+OUTPUT
+
+Addition: 30
+Subtraction: 10
+Multiplication: 200
+Division: 2.0
+Circle Area:  78.5
+Rectangle_Area:  35
+
+12.Create a Package for String Utilities: 
+Create a package called string_utils with two modules: string_operations.py and 
+string_validations.py. 
+In string_operations.py, define functions for reversing a string, converting a string to 
+uppercase, and finding the length of a string. 
+In string_validations.py, define functions to check if a string is a palindrome and if it 
+contains only alphabetic characters. 
+Write a program that imports and uses these functions from the string_utils package.
+
+ANS
+
+
+from MyPackage.spring_op import reverse_string,to_uppercase,string_length
+from MyPackage.str_validate import is_alpha,is_palindrome
+
+text = "Trishaa"
+
+print("Original:" ,text)
+print("Reversed:",reverse_string(text))
+print("Uppercase:", to_uppercase(text))
+print("Length:",string_length(text))
+
+print("Is Plindrome:", is_palindrome(text))
+print("Is Alphabet Only:",is_alpha(text))
+
+#spring_os
+
+def reverse_string(s):
+    return s[::-1]
+
+def to_uppercase(s):
+    return s.upper()
+
+def string_length(s):
+    return len(s)
+
+#str_validate
+
+
+def is_palindrome(s):
+    return s == s[::-1]
+
+def is_alpha(s):
+    return s.isalpha()
+
+OUTPUT
+
+Original: Trishaa
+Reversed: aahsirT
+Uppercase: TRISHAA
+Length: 7
+Is Plindrome: False
+Is Alphabet Only: True
+
+
+
+
+
+
