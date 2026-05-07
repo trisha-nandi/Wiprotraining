@@ -10,7 +10,7 @@ match browser:
         driver = webdriver.Chrome(service=Service('../resources/chromedriver.exe'))
     case _:
         print('Enter the correct browser name !!')
-        
+
 driver.get("https://www.google.com")
 
 pagetitle = driver.title
